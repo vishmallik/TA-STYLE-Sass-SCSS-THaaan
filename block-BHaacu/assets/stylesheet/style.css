@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a,
@@ -78,6 +79,10 @@ a, header > div:last-child li span {
   align-items: center;
 }
 
+.wrap {
+  flex-wrap: wrap;
+}
+
 .center {
   justify-content: center;
   align-items: center;
@@ -101,6 +106,10 @@ a, header > div:last-child li span {
 
 .flex-22 {
   flex: 0 1 22%;
+}
+
+.flex-16 {
+  flex: 0 1 16%;
 }
 
 .align-start {
@@ -135,16 +144,39 @@ a, header > div:last-child li span {
   flex: 0 1 30%;
 }
 
+.flex-71 {
+  flex: 0 1 71%;
+}
+
 .padding {
   padding: 8rem 0;
 }
 
+.col {
+  flex-direction: column;
+}
+
 @media screen and (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
   .sm-flex-100 {
     flex: 0 1 100%;
   }
+  .sm-flex-48 {
+    flex: 0 1 48%;
+  }
+  .sm-flex-20 {
+    flex: 0 1 20%;
+  }
   .sm-wrap {
     flex-wrap: wrap;
+  }
+  .container {
+    width: 90%;
+  }
+  .sm-center {
+    justify-content: center !important;
   }
 }
 header > div:first-child {
@@ -164,6 +196,14 @@ header > div:first-child a, header > div:first-child header > div:last-child li 
   }
 }
 
+.social-media-links {
+  text-align: right;
+}
+@media screen and (max-width: 768px) {
+  .social-media-links {
+    text-align: center;
+  }
+}
 .social-media-links i {
   color: #fff;
   margin-left: 1rem;
@@ -186,15 +226,17 @@ header > div:last-child nav {
     display: none;
   }
 }
-header > div:last-child input {
+header > div:last-child input, header > div:last-child .form-control textarea, .form-control header > div:last-child textarea {
   display: none;
 }
-header > div:last-child input:checked ~ label {
+header > div:last-child input:checked ~ label, header > div:last-child .form-control textarea:checked ~ label, .form-control header > div:last-child textarea:checked ~ label {
   position: fixed;
-  right: 7rem;
+  right: 16px;
+  background-color: transparent;
+  z-index: 999;
 }
 @media screen and (max-width: 768px) {
-  header > div:last-child input:checked ~ nav {
+  header > div:last-child input:checked ~ nav, header > div:last-child .form-control textarea:checked ~ nav, .form-control header > div:last-child textarea:checked ~ nav {
     display: block;
     position: fixed;
     background-color: rgba(220, 62, 69, 0.9);
@@ -203,11 +245,11 @@ header > div:last-child input:checked ~ label {
     left: 0;
     bottom: 0;
   }
-  header > div:last-child input:checked ~ nav ul {
+  header > div:last-child input:checked ~ nav ul, header > div:last-child .form-control textarea:checked ~ nav ul, .form-control header > div:last-child textarea:checked ~ nav ul {
     flex-direction: column;
     margin-top: 8rem;
   }
-  header > div:last-child input:checked ~ nav ul a, header > div:last-child input:checked ~ nav ul li span, header > div:last-child li input:checked ~ nav ul span {
+  header > div:last-child input:checked ~ nav ul a, header > div:last-child .form-control textarea:checked ~ nav ul a, .form-control header > div:last-child textarea:checked ~ nav ul a, header > div:last-child input:checked ~ nav ul li span, header > div:last-child .form-control textarea:checked ~ nav ul li span, .form-control header > div:last-child textarea:checked ~ nav ul li span, header > div:last-child li input:checked ~ nav ul span, header > div:last-child li .form-control textarea:checked ~ nav ul span, .form-control header > div:last-child li textarea:checked ~ nav ul span {
     color: #fff;
     font-size: 2rem;
   }
@@ -223,9 +265,6 @@ header > div:last-child label {
 @media screen and (max-width: 768px) {
   header > div:last-child label {
     display: inline-block;
-    position: relative;
-    z-index: 999;
-    background-color: none;
   }
 }
 header > div:last-child a, header > div:last-child li span {
@@ -252,6 +291,11 @@ header > div:last-child li a:hover, header > div:last-child li span:hover {
   background-color: rgba(220, 62, 69, 0.9);
   color: #fff;
 }
+@media screen and (max-width: 768px) {
+  header > div:last-child li a:hover, header > div:last-child li span:hover {
+    background-color: transparent;
+  }
+}
 header > div:last-child li .fas {
   padding-left: 0.5rem;
 }
@@ -262,7 +306,7 @@ header > div:last-child li .fas {
 
 .bg {
   height: 52rem;
-  background: white url(/block-BHaacu/assets/media/banner-1.jpg) no-repeat center -100px;
+  background: white url(/assets/media/banner-1.jpg) no-repeat center -100px;
 }
 .bg h1 {
   font-weight: 900;
@@ -360,6 +404,11 @@ button:hover > a, header > div:last-child li button:hover > span {
   width: 25%;
   margin: 0 auto 1rem auto;
 }
+@media screen and (max-width: 768px) {
+  .service-card {
+    margin: 2rem 0 1rem 0;
+  }
+}
 
 .solutions {
   background-color: rgb(248, 249, 250);
@@ -421,11 +470,6 @@ button:hover > a, header > div:last-child li button:hover > span {
   font-size: 1.5rem;
 }
 @media screen and (max-width: 768px) {
-  .red-article button {
-    margin: 2rem 6rem;
-  }
-}
-@media screen and (max-width: 768px) {
   .red-article {
     text-align: center;
   }
@@ -444,13 +488,93 @@ button:hover > a, header > div:last-child li button:hover > span {
   text-align: center;
   background-color: rgb(248, 249, 250);
 }
+.clients .container {
+  overflow: hidden;
+}
 .clients h2, .clients h3 {
   font-size: 3.3rem;
 }
 .clients img {
   filter: grayscale(100%) opacity(30%);
 }
+.clients img:hover {
+  filter: grayscale(0%) opacity(100%);
+}
+.clients .flex {
+  width: 2000px;
+  transform: translateX(-1500px);
+}
+.clients .flex-15 {
+  -webkit-animation-name: autoscroll;
+          animation-name: autoscroll;
+  -webkit-animation-duration: 20s;
+          animation-duration: 20s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
 
+@-webkit-keyframes autoscroll {
+  0% {
+    transform: translateX(0px);
+  }
+  12.5% {
+    transform: translateX(200px);
+  }
+  25% {
+    transform: translateX(400px);
+  }
+  37.5% {
+    transform: translateX(600px);
+  }
+  50% {
+    transform: translateX(800px);
+  }
+  62.5% {
+    transform: translateX(1000px);
+  }
+  75% {
+    transform: translateX(1200px);
+  }
+  87.5% {
+    transform: translateX(1400px);
+  }
+  100% {
+    transform: translateX(1600px);
+  }
+}
+
+@keyframes autoscroll {
+  0% {
+    transform: translateX(0px);
+  }
+  12.5% {
+    transform: translateX(200px);
+  }
+  25% {
+    transform: translateX(400px);
+  }
+  37.5% {
+    transform: translateX(600px);
+  }
+  50% {
+    transform: translateX(800px);
+  }
+  62.5% {
+    transform: translateX(1000px);
+  }
+  75% {
+    transform: translateX(1200px);
+  }
+  87.5% {
+    transform: translateX(1400px);
+  }
+  100% {
+    transform: translateX(1600px);
+  }
+}
 footer {
   background-color: rgb(52, 58, 64);
   padding: 5rem 0;
@@ -472,6 +596,11 @@ footer h4 {
 footer li, footer address {
   margin-bottom: 1rem;
   font-size: 1.2rem;
+}
+@media screen and (max-width: 768px) {
+  footer .flex > div {
+    margin-bottom: 3rem;
+  }
 }
 
 .copyright {
@@ -496,6 +625,15 @@ footer li, footer address {
 .drop-down-parent:hover > .drop-down li a, .drop-down-parent:hover > .drop-down header > div:last-child li span, header > div:last-child .drop-down-parent:hover > .drop-down li span {
   display: inline-block;
   padding-left: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .drop-down-parent:hover > .drop-down {
+    background-color: rgb(220, 62, 69);
+    width: 18rem;
+    position: relative;
+    bottom: 150px;
+    left: 0;
+  }
 }
 
 .about-hero {
@@ -528,6 +666,11 @@ footer li, footer address {
 }
 .about article {
   padding: 3rem 0;
+}
+@media screen and (max-width: 768px) {
+  .about h2, .about h3, .about p {
+    width: 100%;
+  }
 }
 
 .child-1 {
@@ -580,6 +723,11 @@ footer li, footer address {
   color: rgb(220, 62, 69);
   font-size: 1rem;
 }
+@media screen and (max-width: 768px) {
+  .about-team .flex-23 {
+    margin-bottom: 4rem;
+  }
+}
 
 .about-solution {
   text-align: center;
@@ -590,6 +738,11 @@ footer li, footer address {
 .about-solution p {
   width: 70%;
   margin: 2rem auto;
+}
+@media screen and (max-width: 768px) {
+  .about-solution p {
+    width: 100%;
+  }
 }
 .about-solution button {
   padding: 0.8rem 1.8rem;
@@ -643,4 +796,199 @@ footer li, footer address {
   font-size: 3rem;
   margin-top: 5rem;
   margin-bottom: 2rem;
+}
+
+.product {
+  text-align: center;
+  background-color: rgb(248, 249, 250);
+}
+.product hr {
+  border: 1px solid rgba(189, 189, 189, 0.2);
+}
+
+.product-card {
+  text-align: left;
+}
+.product-card img {
+  width: 25%;
+  margin-bottom: 1.5rem;
+}
+.product-card p {
+  font-size: 1.3rem;
+  color: rgb(27, 30, 36);
+}
+
+.product-parent > div:first-child {
+  padding: 5rem 0;
+}
+.product-parent > div:last-child {
+  padding-top: 5rem;
+}
+
+.deals {
+  background-color: rgb(220, 62, 69);
+  padding: 2rem 0;
+}
+@media screen and (max-width: 768px) {
+  .deals {
+    text-align: center;
+    justify-content: center;
+  }
+  .deals > div h4 {
+    border-right: 0;
+    margin-bottom: 1rem;
+  }
+}
+.deals h4 {
+  font-size: 1.6rem;
+  color: #fff;
+  border-right: 1px solid #fff;
+}
+.deals p {
+  color: #fff;
+  font-size: 1.3rem;
+}
+.deals button {
+  padding: 0.8rem 1.8rem;
+  border: 1px solid rgb(220, 62, 69);
+  border-radius: 9999px;
+  background-color: rgb(220, 62, 69);
+  border: 1px solid white;
+}
+.deals button:hover {
+  background-color: #fff;
+}
+.deals button:hover > a, .deals header > div:last-child li button:hover > span, header > div:last-child li .deals button:hover > span {
+  color: rgba(220, 62, 69, 0.9);
+}
+.deals button a, .deals button header > div:last-child li span, header > div:last-child li .deals button span {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.award {
+  text-align: center;
+}
+.award .container > p {
+  width: 65%;
+  margin: 0 auto;
+}
+.award .container > div {
+  padding-top: 7rem;
+}
+.award .container > div p {
+  font-size: 1.5rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.letusknow {
+  text-align: center;
+}
+.letusknow p {
+  font-size: 1.3rem;
+  margin: 0 auto 4rem auto;
+  width: 50%;
+}
+.letusknow > div {
+  margin-top: 4rem 0 !important;
+}
+
+.form-control input, .form-control textarea {
+  font-size: 1.3rem;
+  height: 3.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  padding-left: 1rem;
+  border: 1px solid rgb(189, 189, 189);
+  border-radius: 5px;
+}
+.form-control textarea {
+  height: auto;
+  padding-top: 1rem;
+}
+.form-control button {
+  padding: 1.5rem 2rem;
+  background-color: rgb(220, 62, 69);
+}
+.form-control button a, .form-control button header > div:last-child li span, header > div:last-child li .form-control button span {
+  color: #fff;
+}
+@media screen and (max-width: 768px) {
+  .form-control {
+    margin-top: 2rem;
+  }
+}
+
+.contact p {
+  color: rgb(127, 135, 142);
+}
+
+.contact p {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.price-card {
+  background-color: #fff;
+  border: 1px solid rgb(189, 189, 189);
+  border-radius: 5px;
+  padding: 3rem;
+  margin-top: 5rem;
+}
+.price-card h5 {
+  font-size: 1.8rem;
+}
+.price-card h2, .price-card h3 {
+  font-size: 4rem;
+}
+.price-card h2::before, .price-card h3::before {
+  content: "$";
+}
+.price-card h4 {
+  font-size: 1.4rem;
+  color: rgb(127, 135, 142);
+  margin-bottom: 4rem;
+}
+.price-card h6 {
+  font-size: 1.5rem;
+}
+.price-card li {
+  font-size: 1.3rem;
+  line-height: 2;
+}
+.price-card li::before {
+  content: "‐";
+  margin-right: 5px;
+}
+.price-card .accented-btn {
+  background-color: rgb(220, 62, 69);
+}
+.price-card .accented-btn a, .price-card .accented-btn header > div:last-child li span, header > div:last-child li .price-card .accented-btn span {
+  color: #fff;
+}
+
+.faq {
+  text-align: center;
+}
+.faq p {
+  font-size: 1.5rem;
+}
+.faq .wrap {
+  margin-top: 8rem;
+}
+
+.faq-card {
+  text-align: left;
+  border: 1px solid rgb(189, 189, 189);
+  border-radius: 5px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+.faq-card h6 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.faq-card p {
+  padding: 1.5rem 0;
 }/*# sourceMappingURL=style.css.map */

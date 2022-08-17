@@ -22,6 +22,9 @@ a{
     justify-content: space-between;
     align-items: center;
 }
+.wrap{
+    flex-wrap: wrap;
+}
 .center{
     justify-content: center;
     align-items: center;
@@ -40,6 +43,9 @@ a{
 }
 .flex-22{
     flex: 0 1 22%;
+}
+.flex-16{
+    flex: 0 1 16%;
 }
 .align-start{
     align-items: flex-start;
@@ -65,18 +71,37 @@ a{
 .flex-30{
     flex: 0 1 30%;
 }
+.flex-71{
+    flex: 0 1 71%;
+}
 .padding{
     padding: 8rem 0;
 }
+.col{
+    flex-direction: column;
+}
 @media screen  and (max-width: 768px){
-    // html{
-    //     font-size: 12px;
-    // }
+    html{
+        font-size: 12px;
+    }
     .sm-flex-100{
         flex: 0  1 100%;
+    }
+    .sm-flex-48{
+        flex: 0 1 48%;
+    }
+    .sm-flex-20{
+        flex:0 1 20%
     }
     .sm-wrap{
         flex-wrap: wrap;
     }    
+    .container{
+        width: 90%;
+    }
     
+    .sm-center{
+        justify-content: center!important;
+    }
+   
 }
