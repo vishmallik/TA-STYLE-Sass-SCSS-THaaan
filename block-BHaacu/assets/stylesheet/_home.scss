@@ -12,10 +12,16 @@ header >  div:first-child{
         padding: 1rem 0;
     }
 }
-.social-media-links i{
+.social-media-links{ 
+    text-align: right;
+    @media screen and (max-width:768px) {
+        text-align: center;
+    }
+    i{
     color: #fff;
     margin-left: 1rem;
     font-size: 1.2rem;
+}
 }
 header >  div:last-child{
     @media screen and (max-width:768px) {
@@ -35,7 +41,9 @@ header >  div:last-child{
         display: none;
         &:checked ~ label{
             position: fixed;
-            right: 7rem;
+            right: 16px;
+            background-color: transparent;
+            z-index: 999;
         }
         &:checked ~ nav{
             @media screen and (max-width:768px) {
@@ -65,13 +73,12 @@ header >  div:last-child{
         padding: 0.5rem  1.5rem;
         border-radius: 0.5rem;
         @media screen and (max-width:768px) {
-        display: inline-block;
-        position: relative;
-        z-index: 999;
-        background-color: none;
+            display: inline-block;
         }
-
+       
     }
+
+    
     
  a{
     font-size: 2.5rem;
@@ -99,6 +106,11 @@ header >  div:last-child{
             background-color: rgba($accent,0.9);
             color: #fff;
         }
+        @media screen and (max-width:768px) {
+            &:hover{
+            background-color: transparent;
+            }
+            }
     }
     span{
         @extend a
@@ -130,7 +142,7 @@ header >  div:last-child{
 }
 .bg{
     height: 52rem;
-    background: white url(/block-BHaacu/assets/media/banner-1.jpg) no-repeat center -100px ;
+    background: white url(/assets/media/banner-1.jpg) no-repeat center -100px ;
     h1{
         font-weight: 900;
         font-size: 4.5rem;
@@ -202,6 +214,9 @@ button{
         width: 25%;
         margin: 0 auto 1rem auto;
     }
+    @media screen and (max-width:768px) {
+        margin: 2rem 0 1rem 0;
+    }
 }
 .solutions{
     background-color: $banner-middle;
@@ -247,8 +262,7 @@ button{
     button{
         @include button;
         border: 2px solid white;
-        @media screen and (max-width:768px) {
-            margin: 2rem 6rem;}
+     
     }
 
     @media screen and (max-width:768px) {
@@ -269,6 +283,9 @@ button{
     }
 }
 .clients{
+    .container{
+        overflow: hidden;
+    }
     text-align: center;
     background-color: $banner-middle;
     h2{
@@ -276,7 +293,33 @@ button{
     }
     img{
         filter: grayscale(100%) opacity(30%);
+        &:hover{
+            filter: grayscale(0%) opacity(100%);
+        }
     }
+    .flex{
+        
+        width: 2000px;
+        transform: translateX(-1500px);
+    }
+    .flex-15{
+        animation-name: autoscroll;
+        animation-duration: 20s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction:alternate-reverse;
+    }
+}
+@keyframes autoscroll {
+    0%{transform: translateX(0px);}
+    12.5%{transform: translateX(200px);}
+    25%{transform: translateX(400px);}
+    37.5%{transform: translateX(600px);}
+    50%{transform: translateX(800px);}
+    62.5%{transform: translateX(1000px);}
+    75%{transform: translateX(1200px);}
+    87.5%{transform: translateX(1400px);}
+    100%{transform: translateX(1600px);}
 }
 footer{
     background-color: $footer-bg;
@@ -300,6 +343,12 @@ footer{
         margin-bottom: 1rem;
         font-size: 1.2rem;
     }
+    @media screen and (max-width:768px) {
+        & .flex>div{
+            margin-bottom:3rem ;
+        }
+    }
+    
 }
 .copyright{
     text-align: center;
@@ -324,6 +373,13 @@ footer{
             padding-left:1rem ;
         }
         
+    }
+    @media screen and (max-width:768px) {
+        background-color: $accent;
+        width: 18rem;
+        position: relative;
+        bottom: 150px;
+        left: 0;
     }
 }
 
